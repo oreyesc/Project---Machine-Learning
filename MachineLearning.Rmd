@@ -1,0 +1,90 @@
+---
+title: "Prediciton Assignment Writeup"
+author: "Oscar Reyes"
+date: "July 25, 2015"
+output:
+  html_document:
+    toc: yes
+    fig_height: 4
+    fig_width: 5
+    highlight: zenburn
+---
+
+#Overview
+Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, our goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: <http://groupware.les.inf.puc-rio.br/har> (see the section on the Weight Lifting Exercise Dataset).  
+
+#Data
+|Type|Source|
+| :--- | :--- |
+|Training|<https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv>|
+|Test |<https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv>|
+|**Source**|<http://groupware.les.inf.puc-rio.br/har>|
+
+#Objective
+Predict the manner in which they did the exercise.  This is the **"classe"** variable in the training set.
+
+#Project
+##Libraries
+```{r}
+library (caret)
+library (ggplot2)
+library (knitr)
+library (lattice)
+library (randomForest)
+```
+##Loading Data
+- Source Directory:
+setwd()
+- URLs:
+trainingURL <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
+testingURL <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
+
+- File names:
+trainingfile <- "pml-training.csv"
+testingfile <- "pml-testing.csv"
+
+- Downloading the information:
+download.file(url = trainingURL, destfile = trainingfile, method = "curl")
+download.file(url = testingURL, destfile = testingfile, method = "curl")
+
+- Loading information from files:
+training <- read.csv("pml-training.csv", row.names = 1, na.strings = "")
+testing <- read.csv("pml-testing.csv", row.names = 1, na.strings = "NA")
+
+##Model
+##Cross Validation
+##Sample Error
+##Explanation
+ 
+##Data Frame Description
+**The Effect of Vitamin C on Tooth Growth in Guinea Pigs**
+The response is the length of odontoblasts (teeth) in each of 10 guinea pigs at each of three dose levels of Vitamin C (0.5, 1, and 2 mg) with each of two delivery methods (orange juice or ascorbic acid). 
+
+#Objectives
+1. Load the ToothGrowth data and perform some basic exploratory data analyses. (Provide a basic summary of the data).     
+2. Use confidence intervals and/or hypothesis tests to compare tooth growth by supp and dose.  
+3. Conclusions.   
+
+#Libraries
+```{r}
+#Libraries
+library (datasets)
+library (ggplot2)
+```  
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
